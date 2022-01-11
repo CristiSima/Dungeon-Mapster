@@ -1,0 +1,79 @@
+.full-screen-width {
+  position: relative;
+  float:left;
+
+  /* object-fit: cover; */
+  left: 50%;
+  right: 50%;
+  margin-top: -50vw;
+  margin-left: -50vw;
+  margin-right: 50vw;
+  max-width: 100%;
+  max-height: 100%;
+  /* width: 100%; */
+}
+#ImageBox
+{
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+}
+#ImageList {
+    position: relative;
+}
+#Image
+{
+    position:absolute;
+    z-index:1;
+    background-color: black;
+}
+#draw {
+    position:absolute;
+    z-index:2;
+    pointer-events:none;
+}
+#draw #boxes {
+    fill:blue;
+    stroke:black;
+    stroke-width:1;
+    fill-opacity:0.0;
+    stroke-opacity:0.8;
+    filter:
+        drop-shadow( 1px  1px 0px white)
+        drop-shadow(-1px -1px 0px white)
+}
+#draw #marquee {
+    fill:white;
+    stroke:red;
+    stroke-width:1;
+    stroke-dasharray:5,5;
+    stroke-opacity:0.1;
+    fill-opacity:0.2;
+}
+#draw #marquee.hide {
+    display:none;
+}
+.right_but
+{
+}
+.but
+{
+    float:up;
+    text-decoration-line: none;
+    font-size: 20;
+}
+ul#main li {
+    float: left;
+    padding-right: 20px;
+}
+ul {
+    box-sizing: border-box;
+    padding-left: 0;
+    margin: 0 0 0 0;
+    display: inline-block;
+}
+
+#background
+{
+    background-color: black;
+}

@@ -1,0 +1,20 @@
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+</head
+
+<body>
+
+    {% if localhost %}
+        {% block content %}
+        <button class="right_but"><a href="/DM">DM Menu</a></button>
+        {% endblock content %}
+    {% endif %}
+
+    <div id="background">
+        <img id="Image"  src="{{ image_path }}" draggable="false" >
+    </div>
+    <script src="static/js/update.js"></script>
+</body>

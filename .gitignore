@@ -1,0 +1,13 @@
+# images
+**.png
+**.jpg
+
+# used for other
+static/other/**
+
+# python cache
+
+**/__pycache__/**
+
+
+!statis/imgs/TEMP.png
