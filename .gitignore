@@ -1,3 +1,6 @@
+# base image
+!static/images/dungeonmapster.png
+
 # images
 **.png
 **.jpg
@@ -6,8 +9,5 @@
 static/other/**
 
 # python cache
-
 **/__pycache__/**
 
-
-!static/images/TEMP.png
