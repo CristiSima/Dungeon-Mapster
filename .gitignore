@@ -10,4 +10,4 @@ static/other/**
 **/__pycache__/**
 
 
-!statis/imgs/TEMP.png
+!static/images/TEMP.png

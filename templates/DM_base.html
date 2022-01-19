@@ -1,33 +1,36 @@
 <head>
     <title>DM Menu</title>
     <link rel="stylesheet" href="/static/css/DM.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div id="root">
-        <div id = "main">
-            <div id = "GeneratedList">
-                <ul id = "GeneratedUL">
+        <div id="main">
+            <div id="GeneratedList">
+                <ul id="GeneratedUL">
 
                 </ul>
             </div>
             <BR>
-            <div id = "OptionList">
+            <div id="OptionList">
                 Options:
-                <ul id = "OptionUL">
+                <ul id="OptionUL">
 
                 </ul>
             </div>
             <BR>
-            <div id = "ImageList">
+            <div id="ImageList">
                 Base Images:
-                <ul id = "ImageUL">
+                <ul id="ImageUL">
 
                 </ul>
             </div>
             <BR>
             <div id="ImageBox">
-                <img id="Image" src="static/imgs/TEMP.png" draggable="false">
+                <img id="Image" src="static/images/TEMP.png" draggable="false">
                 <svg id="draw" xmlns="http://www.w3.org/2000/svg">
                     <rect id="marquee" x="850" y="820" width="150" height="150" />
                     <g id="boxes"></g>

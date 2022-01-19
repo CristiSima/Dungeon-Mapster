@@ -1,24 +1,21 @@
-add_option("Save reveal","send_reveal(prompt())");
-add_option("Clear reveal","clear_reveal()");
-var will_show=false;
-function check_show_now()
-{
+add_option("Save reveal", "send_reveal(prompt())");
+add_option("Clear reveal", "clear_reveal()");
+var will_show = false;
+function check_show_now() {
     console.log("check_show_now")
-    if(will_show)
-    {
+    if (will_show) {
         change_PC_image("temp");
-        will_show=false;
+        will_show = false;
     }
 }
-function show_now()
-{
-    will_show=true;
+function show_now() {
+    will_show = true;
     send_reveal("temp");
 }
-add_option("Show Reveal","show_now()");
+add_option("Show Reveal", "show_now()");
 
-add_option("     ","")
-add_option("Goto reveals","window.location.pathname=\"/DM_select\"");
+add_option("     ", "")
+add_option("Goto reveals", "window.location.pathname=\"/DM_select\"");
 
 
 socket.on("get_images", on_get_images);
@@ -31,16 +28,15 @@ request_images();
 request_generated();
 // setTimeout(request_generated, 1);
 
-function send_reveal(output)
-{
-    var json={
-        "DM_SECRET":getCookie("DM_SECRET"),
+function send_reveal(output) {
+    var json = {
+        "DM_SECRET": getCookie("DM_SECRET"),
         "instructions": get_rects(),
-        "base_img":img_path,
-        "output":output
+        "base_img": img_path,
+        "output": output
     }
     console.log(json)
-    socket.emit("reveal",json)
+    socket.emit("reveal", json)
 }
 
 socket.on("done_reveal", data => {
@@ -102,7 +98,7 @@ function startDrag(ev) {
     $marquee.classList.remove('hide');
     startX = ev.layerX;
     startY = ev.layerY;
-    drawRect($marquee,{x: startX, y: startY, width: 0, height: 0});
+    drawRect($marquee, { x: startX, y: startY, width: 0, height: 0 });
 }
 
 function stopDrag(ev) {
@@ -113,8 +109,8 @@ function stopDrag(ev) {
     if (ev.target === $screenshot && marqueeRect.width && marqueeRect.height) {
         rectangles.push(Object.assign({}, marqueeRect));
         redraw();
-        marqueeRect.width=0;
-        marqueeRect.height=0;
+        marqueeRect.width = 0;
+        marqueeRect.height = 0;
     }
 }
 
@@ -155,9 +151,9 @@ function hitTest(x, y) {
 
 function redraw() {
     boxes.innerHTML = '';
-        rectangles.forEach((data) => {
-            boxes.appendChild(drawRect(
-                document.createElementNS("http://www.w3.org/2000/svg", 'rect'), data
+    rectangles.forEach((data) => {
+        boxes.appendChild(drawRect(
+            document.createElementNS("http://www.w3.org/2000/svg", 'rect'), data
         ));
     });
 }
@@ -170,7 +166,7 @@ function drawRect(rect, data) {
         height
     } = data;
 
-    x-=$screenshot.offsetTop;
+    x -= $screenshot.offsetTop;
     rect.setAttributeNS(null, 'width', width);
     rect.setAttributeNS(null, 'height', height);
     rect.setAttributeNS(null, 'x', x);
