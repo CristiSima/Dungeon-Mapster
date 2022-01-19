@@ -3,18 +3,17 @@
 // 	return [request.slice(0,end=request.indexOf("|")),request.slice(request.indexOf("|")+1)]
 // }
 
-var Img=document.querySelector("#Image");
+var Img = document.querySelector("#Image");
 var socket = io();
 // socket.on('connect', function() {
 //     socket.emit('message', {data: 'I\'m connected!'});
 // });
 
-socket.on("change_image", json =>
-{
+socket.on("change_image", json => {
 	console.log(json)
-	if(json['new_src'].includes("temp_PC.png"))
-		Img.src="";
-	Img.src=json['new_src']
+	if (json['new_src'].includes("temp_PC.png"))
+		Img.src = "";
+	Img.src = json['new_src']
 })
 // socket.addEventListener('message', function (event)
 // {

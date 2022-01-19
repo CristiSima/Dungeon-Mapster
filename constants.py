@@ -1,7 +1,7 @@
 import os
 
-DM_SECRET=os.urandom(32).hex()
+DM_SECRET = os.urandom(32).hex()
 
-GENERATED_DIR="generated"
+GENERATED_DIR = "generated"
 
-IMAGE_DM_OPACITY=0.2
+IMAGE_DM_OPACITY = 0.2
