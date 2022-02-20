@@ -16,8 +16,9 @@ thread = None
 thread_lock = Lock()
 
 generated_path = []
-CURENT_IMAGE = "static/images/dungeonmapster.png"
-# CURENT_IMAGE="Show.png"
+IMAGE_PREFIX = "/static/images/"
+CURENT_IMAGE = "/static/images/dungeonmapster.png"
+CURENT_DM_IMAGE = CURENT_IMAGE
 
 
 def require_localhost(route_method):
@@ -53,7 +54,7 @@ def require_DM_SECRET(event_method):
 @app.route('/DM')
 # @require_localhost
 def DM():
-    resp = make_response(render_template('DM_base.html', image_path=CURENT_IMAGE, async_mode=socketio.async_mode))
+    resp = make_response(render_template('DM_base.html', image_path=CURENT_DM_IMAGE, async_mode=socketio.async_mode))
     resp.set_cookie("DM_SECRET", DM_SECRET)
     return resp
 
@@ -75,6 +76,9 @@ def index():
 @socketio.on("reveal")
 @require_DM_SECRET
 def reveal(msg: dict):
+    global CURENT_DM_IMAGE
+    CURENT_DM_IMAGE = IMAGE_PREFIX + msg["base_img"]
+
     save_images(msg["base_img"], msg["output"], msg["instructions"])
     # informs the DM(on ALL pannels) that a new img has been created
     emit("done_reveal", broadcast=True)

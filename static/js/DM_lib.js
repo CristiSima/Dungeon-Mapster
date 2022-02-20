@@ -66,7 +66,7 @@ function refill_list(elementId, function_name, data) {
 
     // displaies all elements
     for (var i = 0; i < data.length; i = i + 1) {
-        if (data[i] == "temp")
+        if (data[i] == "temp" || data[i] == ".gitkeep")
             continue
         let a = get_button_calling(data[i], function_name + "(\"" + data[i] + "\")");
 
