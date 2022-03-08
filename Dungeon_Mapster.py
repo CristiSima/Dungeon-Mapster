@@ -2,6 +2,8 @@ from constants import GENERATED_DIR
 from flask import Flask, render_template, request, redirect, make_response
 from flask_socketio import SocketIO, emit
 from threading import Lock
+import time
+import json
 
 import os
 
@@ -14,6 +16,7 @@ app.config['SECRET_KEY'] = '9f962e1ffa116b1becfdf2581129012f71792a53a9493bb2ce46
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
+last_update=time.time()
 
 generated_path = []
 IMAGE_PREFIX = "/static/images/"
@@ -49,6 +52,14 @@ def require_DM_SECRET(event_method):
             return
 
     return check_DM_SECRET
+
+@app.route('/current_image')
+def current_image():
+    # for HTTP fallback
+    return json.dumps({
+        "last_update":last_update,
+        "new_src":CURENT_IMAGE
+    })
 
 
 @app.route('/DM')
@@ -107,6 +118,9 @@ def get_generated(msg: dict):
 @require_DM_SECRET
 def change_image(msg: dict):
     global CURENT_IMAGE
+    global last_update
+
+    last_update=time.time()
 
     CURENT_IMAGE = msg['new_src']
     # sends the event to ALL connected clients
